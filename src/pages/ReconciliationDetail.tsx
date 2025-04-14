@@ -59,6 +59,7 @@ const ReconciliationDetail = () => {
         glAmount: null,
         variance: 500.00,
         matched: false,
+        varianceReason: 'Missing invoice from vendor - withdrawal not recorded in GL',
       },
       {
         date: '05/25/2025',
@@ -86,6 +87,7 @@ const ReconciliationDetail = () => {
         glAmount: null,
         variance: 35.00,
         matched: false,
+        varianceReason: 'Fee automatically deducted by bank - GL entry pending',
       },
       {
         date: '05/27/2025',
@@ -104,6 +106,7 @@ const ReconciliationDetail = () => {
         glAmount: 2175.50,
         variance: 2175.50,
         matched: false,
+        varianceReason: 'Timing mismatch: Bank transaction expected on June 1st',
       },
       {
         date: '05/28/2025',
@@ -122,6 +125,7 @@ const ReconciliationDetail = () => {
         glAmount: 12557.50,
         variance: -106.75,
         matched: false,
+        varianceReason: 'Wire transfer fee deducted from deposit amount',
       },
     ],
   };

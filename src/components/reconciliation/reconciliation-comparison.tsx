@@ -4,6 +4,7 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { InfoIcon } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface ReconciliationEntry {
   date: string;
@@ -13,6 +14,7 @@ interface ReconciliationEntry {
   glAmount: number | null;
   variance: number | null; // Can be null if entry exists in only one side
   matched: boolean;
+  varianceReason?: string; // Added this field for the tooltip
 }
 
 interface ReconciliationComparisonProps {
@@ -87,7 +89,23 @@ export function ReconciliationComparison({ entries, accountName }: Reconciliatio
                     entry.variance ? 'text-red-600' : ''
                   }`}
                 >
-                  {formatCurrency(entry.variance)}
+                  {entry.varianceReason ? (
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div className="flex items-center justify-end gap-1 cursor-help">
+                            {formatCurrency(entry.variance)}
+                            <InfoIcon className="h-3.5 w-3.5" />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent className="bg-white border border-gray-200 shadow-md">
+                          <p className="text-sm">{entry.varianceReason}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  ) : (
+                    formatCurrency(entry.variance)
+                  )}
                 </TableCell>
                 <TableCell>
                   {entry.matched ? (
