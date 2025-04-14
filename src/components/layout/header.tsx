@@ -72,7 +72,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="mr-2 md:hidden"
+          className="mr-4 md:hidden"
           onClick={onMenuToggle}
         >
           <Menu className="h-5 w-5" />

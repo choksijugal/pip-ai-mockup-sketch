@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TableHeader, TableRow, TableHead, TableBody, TableCell, Table } from '@/components/ui/table';
@@ -73,7 +72,7 @@ const Reconciliations = () => {
   };
 
   return (
-    <AppLayout title="Reconciliations">
+    <>
       <div className="mb-4">
         <Alert className="bg-amber-50 border-amber-200">
           <AlertCircle className="h-4 w-4 text-amber-600" />
@@ -147,7 +146,7 @@ const Reconciliations = () => {
           </Table>
         </CardContent>
       </Card>
-    </AppLayout>
+    </>
   );
 };
 

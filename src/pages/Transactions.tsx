@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -52,7 +51,7 @@ const Transactions = () => {
   ];
 
   return (
-    <AppLayout title="Transactions">
+    <>
       <div className="flex justify-between items-center mb-4">
         <div className="relative w-72">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -130,7 +129,7 @@ const Transactions = () => {
           </Table>
         </CardContent>
       </Card>
-    </AppLayout>
+    </>
   );
 };
 
