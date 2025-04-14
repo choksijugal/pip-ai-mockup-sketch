@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Sidebar, 
   SidebarContent, 
@@ -11,9 +11,10 @@ import { Header } from './header';
 
 interface AppLayoutProps {
   children: React.ReactNode;
+  title?: string;
 }
 
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({ children, title = "Dashboard" }: AppLayoutProps) {
   const { open: sidebarOpen, setOpen: setSidebarOpen } = useSidebar();
   
   return (
@@ -35,7 +36,10 @@ export function AppLayout({ children }: AppLayoutProps) {
       </Sidebar>
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 overflow-auto bg-muted/20 p-6">{children}</main>
+        <main className="flex-1 overflow-auto bg-muted/20 p-6">
+          <h1 className="text-2xl font-bold mb-6 text-left">{title}</h1>
+          {children}
+        </main>
       </div>
     </div>
   );
