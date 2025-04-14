@@ -55,7 +55,7 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
                       ? 'destructive'
                       : 'secondary'
                   }
-                  className="flex items-center gap-1 text-xs leading-none py-1 self-center"
+                  className="flex items-center gap-1 text-xs leading-none py-1 self-center whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
                 >
                   {change.type === 'increase' ? (
                     <ArrowUp className="h-3 w-3 flex-shrink-0" />
