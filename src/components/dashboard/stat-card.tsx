@@ -55,14 +55,14 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
                       ? 'destructive'
                       : 'secondary'
                   }
-                  className="flex items-center gap-1 text-xs leading-none py-1"
+                  className="flex items-center gap-1 text-xs leading-none py-1 self-center"
                 >
                   {change.type === 'increase' ? (
                     <ArrowUp className="h-3 w-3 flex-shrink-0" />
                   ) : change.type === 'decrease' ? (
                     <ArrowDown className="h-3 w-3 flex-shrink-0" />
                   ) : null}
-                  <span>{change.value}</span>
+                  <span className="ml-0.5">{change.value}</span>
                 </BadgeDashboard>
               )}
             </div>
