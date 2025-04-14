@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Card, 
   CardContent, 
@@ -301,6 +301,7 @@ const getTaskTypeIcon = (taskType: TaskType) => {
 };
 
 const TaskEngine = () => {
+  const navigate = useNavigate();
   const [activeDay, setActiveDay] = useState('all');
   const [activeView, setActiveView] = useState('list');
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
@@ -341,6 +342,16 @@ const TaskEngine = () => {
   const renderTaskTypeIcon = (taskType: TaskType) => {
     const TaskTypeIcon = getTaskTypeIcon(taskType);
     return <TaskTypeIcon className="h-4 w-4 text-gray-600" />;
+  };
+
+  // New function to handle task navigation
+  const handleTaskNavigation = (task: Task) => {
+    if (task.name === "Bank Reconciliation - Operating Account") {
+      navigate('/reconciliations/1'); // Matches the ID in the mock reconciliation data
+    } else {
+      // Open task details drawer for other tasks
+      openTaskDetails(task);
+    }
   };
 
   return (
@@ -507,7 +518,7 @@ const TaskEngine = () => {
                       <div 
                         key={task.id} 
                         className="p-4 hover:bg-gray-50 transition-colors cursor-pointer"
-                        onClick={() => openTaskDetails(task)}
+                        onClick={() => handleTaskNavigation(task)}
                       >
                         <div className="flex justify-between">
                           <div className="flex items-start gap-3">
@@ -591,7 +602,7 @@ const TaskEngine = () => {
                 <div className="space-y-1">
                   <p className="text-sm text-gray-500">Owner</p>
                   <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs font-medium">
+                    <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs font-medium flex-shrink-0">
                       {selectedTask.owner.initials}
                     </div>
                     <span className="font-medium">{selectedTask.owner.name}</span>
