@@ -332,6 +332,17 @@ const TaskEngine = () => {
   const taskCounts = getTaskCounts();
   const tasksByCategory = getTasksByCategory();
 
+  // To fix the syntax error with dynamic icons, we'll render these separately
+  const renderStatusIcon = (status: TaskStatus) => {
+    const StatusIcon = getStatusInfo(status).icon;
+    return <StatusIcon className={`h-3 w-3 ${getStatusInfo(status).textColor}`} />;
+  };
+
+  const renderTaskTypeIcon = (taskType: TaskType) => {
+    const TaskTypeIcon = getTaskTypeIcon(taskType);
+    return <TaskTypeIcon className="h-4 w-4 text-gray-600" />;
+  };
+
   return (
     <>
       {/* Header metrics panel */}
@@ -495,19 +506,19 @@ const TaskEngine = () => {
                     return (
                       <div 
                         key={task.id} 
-                        className="p-4 hover:bg-gray-50 transition-colors"
+                        className="p-4 hover:bg-gray-50 transition-colors cursor-pointer"
                         onClick={() => openTaskDetails(task)}
                       >
                         <div className="flex justify-between">
                           <div className="flex items-start gap-3">
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center ${statusInfo.bgColor} flex-shrink-0`}>
-                              <statusInfo.icon className={`h-5 w-5 ${statusInfo.textColor}`} />
+                              {React.createElement(statusInfo.icon, { className: `h-5 w-5 ${statusInfo.textColor}` })}
                             </div>
                             <div>
                               <div className="flex items-center gap-2">
                                 <div className="font-medium text-gray-900">{task.name}</div>
                                 <div className="bg-gray-100 p-1 rounded">
-                                  <TaskTypeIcon className="h-3.5 w-3.5 text-gray-500" />
+                                  {React.createElement(TaskTypeIcon, { className: "h-3.5 w-3.5 text-gray-500" })}
                                 </div>
                               </div>
                               <div className="text-sm text-gray-500 flex items-center gap-2 mt-1">
@@ -571,7 +582,7 @@ const TaskEngine = () => {
                   <p className="text-sm text-gray-500">Status</p>
                   <div className="flex items-center gap-2">
                     <div className={`w-5 h-5 rounded-full flex items-center justify-center ${getStatusInfo(selectedTask.status).bgColor}`}>
-                      <getStatusInfo(selectedTask.status).icon className={`h-3 w-3 ${getStatusInfo(selectedTask.status).textColor}`} />
+                      {renderStatusIcon(selectedTask.status)}
                     </div>
                     <span className="font-medium">{getStatusInfo(selectedTask.status).label}</span>
                   </div>
@@ -595,7 +606,7 @@ const TaskEngine = () => {
                 <div className="space-y-1">
                   <p className="text-sm text-gray-500">Task Type</p>
                   <div className="flex items-center gap-2">
-                    <getTaskTypeIcon(selectedTask.taskType) className="h-4 w-4 text-gray-600" />
+                    {renderTaskTypeIcon(selectedTask.taskType)}
                     <p className="font-medium capitalize">{selectedTask.taskType}</p>
                   </div>
                 </div>
