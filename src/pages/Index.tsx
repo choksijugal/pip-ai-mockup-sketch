@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { StatCard } from '@/components/dashboard/stat-card';
 import { TaskProgress } from '@/components/dashboard/task-progress';
@@ -8,7 +7,7 @@ import { RecentActivities } from '@/components/dashboard/recent-activities';
 import { AIInsights } from '@/components/dashboard/ai-insights';
 import { AIAssistantWidget } from '@/components/dashboard/ai-assistant-widget';
 import { Clock, AlertCircle, CheckCircle, Banknote } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
   // Sample data for the dashboard
@@ -169,19 +168,6 @@ const Index = () => {
 
   return (
     <div className="space-y-6">
-      {/* Summary Banner */}
-      <Card className="bg-gradient-to-r from-indigo-50 to-blue-50 border-none shadow-sm overflow-hidden">
-        <CardContent className="p-6">
-          <div className="flex flex-col gap-1">
-            <div className="text-lg text-gray-600">So far this month, you've saved</div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-emerald-500">$42,450</span>
-              <span className="text-gray-600">on your monthly close process</span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Closing Deadline"
