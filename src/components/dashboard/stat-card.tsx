@@ -44,7 +44,7 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
                 </TooltipProvider>
               )}
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
               <span className="text-2xl font-semibold leading-none tracking-tight text-gray-900">{value}</span>
               {change && (
                 <BadgeDashboard
@@ -55,14 +55,14 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
                       ? 'destructive'
                       : 'secondary'
                   }
-                  className="flex items-center gap-1 text-xs leading-none py-1 self-center whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
+                  className="inline-flex items-center gap-1 text-xs leading-none py-1 whitespace-nowrap max-w-[150px]"
                 >
                   {change.type === 'increase' ? (
                     <ArrowUp className="h-3 w-3 flex-shrink-0" />
                   ) : change.type === 'decrease' ? (
                     <ArrowDown className="h-3 w-3 flex-shrink-0" />
                   ) : null}
-                  <span className="ml-0.5">{change.value}</span>
+                  <span className="truncate">{change.value}</span>
                 </BadgeDashboard>
               )}
             </div>
