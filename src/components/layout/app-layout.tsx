@@ -4,7 +4,7 @@ import {
   Sidebar, 
   SidebarContent, 
   SidebarHeader,
-  useSidebar
+  SidebarProvider
 } from '@/components/ui/sidebar';
 import { SidebarNav } from './sidebar-nav';
 import { Header } from './header';
@@ -15,7 +15,17 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children, title = "Dashboard" }: AppLayoutProps) {
-  const { open: sidebarOpen, setOpen: setSidebarOpen } = useSidebar();
+  return (
+    <SidebarProvider defaultOpen={true}>
+      <LayoutContent title={title}>
+        {children}
+      </LayoutContent>
+    </SidebarProvider>
+  );
+}
+
+function LayoutContent({ children, title }: AppLayoutProps) {
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   
   return (
     <div className="flex min-h-screen w-full">
