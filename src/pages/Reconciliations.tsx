@@ -74,7 +74,7 @@ const Reconciliations = () => {
 
   return (
     <AppLayout title="Reconciliations">
-      <div className="mb-6">
+      <div className="mb-4">
         <Alert className="bg-amber-50 border-amber-200">
           <AlertCircle className="h-4 w-4 text-amber-600" />
           <AlertTitle className="text-amber-800">May 2025 Reconciliation In Progress</AlertTitle>
@@ -85,26 +85,24 @@ const Reconciliations = () => {
       </div>
 
       <div className="flex justify-between items-center mb-4">
-        <div className="flex gap-4">
-          <Button variant="outline" className="gap-2">
-            <Filter className="h-4 w-4" />
-            Filter
-          </Button>
-        </div>
+        <Button variant="outline" className="gap-2">
+          <Filter className="h-4 w-4" />
+          Filter
+        </Button>
         <Button className="gap-2">
           <PlusCircle className="h-4 w-4" />
           New Reconciliation
         </Button>
       </div>
 
-      <Card>
-        <CardHeader>
+      <Card className="overflow-hidden">
+        <CardHeader className="pb-0">
           <CardTitle>May 2025 Reconciliations</CardTitle>
           <CardDescription>
             Financial account reconciliations for the current period
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-4">
           <Table>
             <TableHeader>
               <TableRow>

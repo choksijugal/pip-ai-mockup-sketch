@@ -17,9 +17,11 @@ interface AppLayoutProps {
 export function AppLayout({ children, title = "Dashboard" }: AppLayoutProps) {
   return (
     <SidebarProvider defaultOpen={true}>
-      <LayoutContent title={title}>
-        {children}
-      </LayoutContent>
+      <div className="flex min-h-screen w-full">
+        <LayoutContent title={title}>
+          {children}
+        </LayoutContent>
+      </div>
     </SidebarProvider>
   );
 }
