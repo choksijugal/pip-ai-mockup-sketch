@@ -175,6 +175,7 @@ const Index = () => {
           icon={Clock}
           tooltip="Time remaining until month-end close deadline"
           change={{ value: "On Schedule", type: "neutral" }}
+          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Open Issues"
@@ -182,6 +183,7 @@ const Index = () => {
           icon={AlertCircle}
           tooltip="Critical issues requiring attention"
           change={{ value: "-2 from last close", type: "increase" }}
+          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Completed Tasks"
@@ -189,6 +191,7 @@ const Index = () => {
           icon={CheckCircle}
           tooltip="Tasks completed out of total tasks"
           change={{ value: "53% Complete", type: "increase" }}
+          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Revenue Recognized"
@@ -196,6 +199,7 @@ const Index = () => {
           icon={Banknote}
           tooltip="Total revenue recognized this period"
           change={{ value: "+12% YoY", type: "increase" }}
+          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
       </div>
 

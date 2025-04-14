@@ -25,17 +25,17 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon: Icon, change, tooltip, className }: StatCardProps) {
   return (
-    <Card className={cn("overflow-hidden", className)}>
-      <CardContent className="p-6">
+    <Card className={cn("overflow-hidden bg-white", className)}>
+      <CardContent className="p-5">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
+              <h3 className="text-sm font-medium text-gray-500">{title}</h3>
               {tooltip && (
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <HelpCircle className="h-3.5 w-3.5 text-muted-foreground/70" />
+                      <HelpCircle className="h-3.5 w-3.5 text-gray-400" />
                     </TooltipTrigger>
                     <TooltipContent>
                       <p className="max-w-xs text-sm">{tooltip}</p>
@@ -45,7 +45,7 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
               )}
             </div>
             <div className="flex items-end gap-2">
-              <span className="text-2xl font-semibold leading-none tracking-tight">{value}</span>
+              <span className="text-2xl font-semibold leading-none tracking-tight text-gray-900">{value}</span>
               {change && (
                 <BadgeDashboard
                   variant={
@@ -55,7 +55,7 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
                       ? 'destructive'
                       : 'secondary'
                   }
-                  className="mb-1 flex items-center gap-0.5"
+                  className="mb-1 flex items-center gap-0.5 text-xs"
                 >
                   {change.type === 'increase' ? (
                     <ArrowUp className="h-3 w-3" />
@@ -67,7 +67,7 @@ export function StatCard({ title, value, icon: Icon, change, tooltip, className 
               )}
             </div>
           </div>
-          <div className="rounded-full p-2 bg-primary/10">
+          <div className="rounded-full p-2.5 bg-primary/10">
             <Icon className="h-5 w-5 text-primary" />
           </div>
         </div>
