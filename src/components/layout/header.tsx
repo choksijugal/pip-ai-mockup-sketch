@@ -78,12 +78,9 @@ export function Header({ onMenuToggle }: HeaderProps) {
           <Menu className="h-5 w-5" />
           <span className="sr-only">Toggle menu</span>
         </Button>
-        <div className="flex items-center gap-2 font-semibold text-lg md:text-xl mr-4">
-          <span className="text-primary font-bold">Pip</span>
-          <span>CloseOps</span>
-        </div>
+        
         <form onSubmit={handleSearch} className="ml-auto flex items-center gap-2">
-          <div className="relative hidden md:flex items-center">
+          <div className="relative md:flex items-center">
             <Search className="absolute left-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="search"
