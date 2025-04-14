@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { StatCard } from '@/components/dashboard/stat-card';
 import { TaskProgress } from '@/components/dashboard/task-progress';
@@ -168,7 +169,8 @@ const Index = () => {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {/* Changed from a single row of 4 cards to 2 rows of 2 cards */}
+      <div className="grid gap-4 md:grid-cols-2">
         <StatCard
           title="Closing Deadline"
           value="3 Days"
