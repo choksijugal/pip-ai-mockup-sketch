@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { StatCard } from '@/components/dashboard/stat-card';
 import { TaskProgress } from '@/components/dashboard/task-progress';
 import { SystemIntegrations } from '@/components/dashboard/system-integrations';
@@ -8,7 +7,7 @@ import { ReconciliationStatus } from '@/components/dashboard/reconciliation-stat
 import { RecentActivities } from '@/components/dashboard/recent-activities';
 import { AIInsights } from '@/components/dashboard/ai-insights';
 import { AIAssistantWidget } from '@/components/dashboard/ai-assistant-widget';
-import { Clock, AlertCircle, CheckCircle, Banknote, FileCheck2 } from 'lucide-react';
+import { Clock, AlertCircle, CheckCircle, Banknote } from 'lucide-react';
 
 const Index = () => {
   // Sample data for the dashboard
@@ -168,63 +167,61 @@ const Index = () => {
   ];
 
   return (
-    <AppLayout>
-      <div className="space-y-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <StatCard
-            title="Closing Deadline"
-            value="3 Days"
-            icon={Clock}
-            tooltip="Time remaining until month-end close deadline"
-            change={{ value: "On Schedule", type: "neutral" }}
-          />
-          <StatCard
-            title="Open Issues"
-            value="7"
-            icon={AlertCircle}
-            tooltip="Critical issues requiring attention"
-            change={{ value: "-2 from last close", type: "increase" }}
-          />
-          <StatCard
-            title="Completed Tasks"
-            value="42/79"
-            icon={CheckCircle}
-            tooltip="Tasks completed out of total tasks"
-            change={{ value: "53% Complete", type: "increase" }}
-          />
-          <StatCard
-            title="Revenue Recognized"
-            value="$4.2M"
-            icon={Banknote}
-            tooltip="Total revenue recognized this period"
-            change={{ value: "+12% YoY", type: "increase" }}
-          />
-        </div>
+    <div className="space-y-6">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <StatCard
+          title="Closing Deadline"
+          value="3 Days"
+          icon={Clock}
+          tooltip="Time remaining until month-end close deadline"
+          change={{ value: "On Schedule", type: "neutral" }}
+        />
+        <StatCard
+          title="Open Issues"
+          value="7"
+          icon={AlertCircle}
+          tooltip="Critical issues requiring attention"
+          change={{ value: "-2 from last close", type: "increase" }}
+        />
+        <StatCard
+          title="Completed Tasks"
+          value="42/79"
+          icon={CheckCircle}
+          tooltip="Tasks completed out of total tasks"
+          change={{ value: "53% Complete", type: "increase" }}
+        />
+        <StatCard
+          title="Revenue Recognized"
+          value="$4.2M"
+          icon={Banknote}
+          tooltip="Total revenue recognized this period"
+          change={{ value: "+12% YoY", type: "increase" }}
+        />
+      </div>
 
-        <div className="grid gap-6 md:grid-cols-6">
-          <div className="md:col-span-3 space-y-6">
-            <TaskProgress tasks={tasks} totalTasks={15} />
-            <SystemIntegrations integrations={integrations} />
-          </div>
-          <div className="md:col-span-3 space-y-6">
-            <ReconciliationStatus 
-              data={reconciliationData} 
-              period="May 2025" 
-            />
-            <AIInsights insights={insights} />
-          </div>
+      <div className="grid gap-6 md:grid-cols-6">
+        <div className="md:col-span-3 space-y-6">
+          <TaskProgress tasks={tasks} totalTasks={15} />
+          <SystemIntegrations integrations={integrations} />
         </div>
-
-        <div className="grid gap-6 md:grid-cols-6">
-          <div className="md:col-span-3 space-y-6">
-            <RecentActivities activities={activities} />
-          </div>
-          <div className="md:col-span-3 space-y-6">
-            <AIAssistantWidget />
-          </div>
+        <div className="md:col-span-3 space-y-6">
+          <ReconciliationStatus 
+            data={reconciliationData} 
+            period="May 2025" 
+          />
+          <AIInsights insights={insights} />
         </div>
       </div>
-    </AppLayout>
+
+      <div className="grid gap-6 md:grid-cols-6">
+        <div className="md:col-span-3 space-y-6">
+          <RecentActivities activities={activities} />
+        </div>
+        <div className="md:col-span-3 space-y-6">
+          <AIAssistantWidget />
+        </div>
+      </div>
+    </div>
   );
 };
 
