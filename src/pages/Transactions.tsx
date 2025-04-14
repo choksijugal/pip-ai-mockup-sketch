@@ -59,35 +59,35 @@ const Transactions = () => {
           <Input
             type="search"
             placeholder="Search transactions..."
-            className="w-full bg-background pl-8"
+            className="w-full bg-white pl-8 border-gray-200"
           />
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" className="gap-2">
+          <Button variant="outline" className="gap-2 bg-white shadow-sm border-gray-200">
             <Filter className="h-4 w-4" />
             Filter
           </Button>
-          <Button variant="outline" className="gap-2">
+          <Button variant="outline" className="gap-2 bg-white shadow-sm border-gray-200">
             <Download className="h-4 w-4" />
             Export
           </Button>
-          <Button className="gap-2">
+          <Button className="gap-2 bg-primary shadow-sm">
             <Plus className="h-4 w-4" />
             New Transaction
           </Button>
         </div>
       </div>
 
-      <Card className="overflow-hidden">
-        <CardHeader className="pb-0">
+      <Card className="overflow-hidden border border-gray-200 shadow-sm">
+        <CardHeader className="pb-0 border-b bg-gray-50">
           <CardTitle>Recent Transactions</CardTitle>
           <CardDescription>
             View and manage financial transactions
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-4">
+        <CardContent className="pt-4 bg-white p-0">
           <Table>
-            <TableHeader>
+            <TableHeader className="bg-gray-50">
               <TableRow>
                 <TableHead>
                   <Button variant="ghost" className="p-0 h-auto font-medium flex items-center gap-1">
@@ -107,7 +107,7 @@ const Transactions = () => {
             </TableHeader>
             <TableBody>
               {transactions.map((transaction) => (
-                <TableRow key={transaction.id}>
+                <TableRow key={transaction.id} className="hover:bg-gray-50">
                   <TableCell>{transaction.date}</TableCell>
                   <TableCell className="font-medium">{transaction.description}</TableCell>
                   <TableCell>{transaction.category}</TableCell>
@@ -122,7 +122,7 @@ const Transactions = () => {
                     {transaction.status}
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">View</Button>
+                    <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700 hover:bg-gray-100">View</Button>
                   </TableCell>
                 </TableRow>
               ))}

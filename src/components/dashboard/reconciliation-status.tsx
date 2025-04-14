@@ -36,18 +36,18 @@ export function ReconciliationStatus({ data, period }: ReconciliationStatusProps
   };
 
   return (
-    <Card>
-      <CardHeader className="pb-3">
+    <Card className="border border-gray-200 shadow-sm overflow-hidden">
+      <CardHeader className="pb-3 border-b bg-gray-50">
         <div className="flex items-center justify-between">
           <div>
             <CardTitle>Reconciliation Status</CardTitle>
             <div className="text-sm text-muted-foreground">{period}</div>
           </div>
-          <Button variant="outline" size="sm">View Details</Button>
+          <Button variant="outline" size="sm" className="bg-white">View Details</Button>
         </div>
       </CardHeader>
-      <CardContent>
-        <div className="grid sm:grid-cols-2 gap-6">
+      <CardContent className="pt-4">
+        <div className="grid sm:grid-cols-2 gap-4">
           <div className="h-48">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -72,7 +72,7 @@ export function ReconciliationStatus({ data, period }: ReconciliationStatusProps
             </ResponsiveContainer>
           </div>
           
-          <div className="space-y-3 flex flex-col justify-center">
+          <div className="space-y-2 flex flex-col justify-center">
             {data.map((item) => (
               <div key={item.name} className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export function ReconciliationStatus({ data, period }: ReconciliationStatusProps
               </div>
             ))}
             
-            <div className="pt-2 border-t">
+            <div className="pt-2 border-t mt-2">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">Total</span>
                 <span className="text-sm font-medium">{total} accounts</span>

@@ -25,7 +25,7 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon: Icon, change, tooltip, className }: StatCardProps) {
   return (
-    <Card className={cn("overflow-hidden bg-white", className)}>
+    <Card className={cn("overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all", className)}>
       <CardContent className="p-5">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">

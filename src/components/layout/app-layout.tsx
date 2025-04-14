@@ -48,8 +48,8 @@ function LayoutContent({ children, title }: AppLayoutProps) {
       </Sidebar>
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 overflow-auto bg-muted/20 p-6">
-          <h1 className="text-2xl font-bold mb-6 text-left">{title}</h1>
+        <main className="flex-1 overflow-auto bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+          <h1 className="text-2xl font-bold mb-6 text-gray-800">{title}</h1>
           {children}
         </main>
       </div>

@@ -8,6 +8,7 @@ import { RecentActivities } from '@/components/dashboard/recent-activities';
 import { AIInsights } from '@/components/dashboard/ai-insights';
 import { AIAssistantWidget } from '@/components/dashboard/ai-assistant-widget';
 import { Clock, AlertCircle, CheckCircle, Banknote } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Index = () => {
   // Sample data for the dashboard
@@ -168,6 +169,19 @@ const Index = () => {
 
   return (
     <div className="space-y-6">
+      {/* Summary Banner */}
+      <Card className="bg-gradient-to-r from-indigo-50 to-blue-50 border-none shadow-sm overflow-hidden">
+        <CardContent className="p-6">
+          <div className="flex flex-col gap-1">
+            <div className="text-lg text-gray-600">So far this month, you've saved</div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl font-bold text-emerald-500">$42,450</span>
+              <span className="text-gray-600">on your monthly close process</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Closing Deadline"
@@ -175,7 +189,6 @@ const Index = () => {
           icon={Clock}
           tooltip="Time remaining until month-end close deadline"
           change={{ value: "On Schedule", type: "neutral" }}
-          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Open Issues"
@@ -183,7 +196,6 @@ const Index = () => {
           icon={AlertCircle}
           tooltip="Critical issues requiring attention"
           change={{ value: "-2 from last close", type: "increase" }}
-          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Completed Tasks"
@@ -191,7 +203,6 @@ const Index = () => {
           icon={CheckCircle}
           tooltip="Tasks completed out of total tasks"
           change={{ value: "53% Complete", type: "increase" }}
-          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
         <StatCard
           title="Revenue Recognized"
@@ -199,7 +210,6 @@ const Index = () => {
           icon={Banknote}
           tooltip="Total revenue recognized this period"
           change={{ value: "+12% YoY", type: "increase" }}
-          className="border-gray-200 shadow-sm hover:shadow-md transition-shadow"
         />
       </div>
 

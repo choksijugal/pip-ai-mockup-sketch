@@ -85,26 +85,26 @@ const Reconciliations = () => {
       </div>
 
       <div className="flex justify-between items-center mb-4">
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline" className="gap-2 bg-white shadow-sm border-gray-200">
           <Filter className="h-4 w-4" />
           Filter
         </Button>
-        <Button className="gap-2">
+        <Button className="gap-2 bg-primary shadow-sm">
           <PlusCircle className="h-4 w-4" />
           New Reconciliation
         </Button>
       </div>
 
-      <Card className="overflow-hidden">
-        <CardHeader className="pb-0">
+      <Card className="overflow-hidden border border-gray-200 shadow-sm">
+        <CardHeader className="pb-0 border-b bg-gray-50">
           <CardTitle>May 2025 Reconciliations</CardTitle>
           <CardDescription>
             Financial account reconciliations for the current period
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-4">
+        <CardContent className="pt-4 bg-white p-0">
           <Table>
-            <TableHeader>
+            <TableHeader className="bg-gray-50">
               <TableRow>
                 <TableHead>Account</TableHead>
                 <TableHead>
@@ -129,7 +129,7 @@ const Reconciliations = () => {
             </TableHeader>
             <TableBody>
               {reconciliationItems.map((item) => (
-                <TableRow key={item.id}>
+                <TableRow key={item.id} className="hover:bg-gray-50">
                   <TableCell className="font-medium">{item.account}</TableCell>
                   <TableCell>{item.bankBalance}</TableCell>
                   <TableCell>{item.glBalance}</TableCell>
@@ -139,7 +139,7 @@ const Reconciliations = () => {
                   <TableCell>{getStatusBadge(item.status)}</TableCell>
                   <TableCell className="text-muted-foreground">{item.lastUpdated}</TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">View</Button>
+                    <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700 hover:bg-gray-100">View</Button>
                   </TableCell>
                 </TableRow>
               ))}
