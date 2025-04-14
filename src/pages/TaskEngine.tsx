@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -8,7 +6,7 @@ import { Plus, Filter, Calendar, CheckCircle2, AlertCircle, Clock } from 'lucide
 
 const TaskEngine = () => {
   return (
-    <AppLayout title="Task Engine">
+    <>
       <div className="flex justify-between items-center mb-6">
         <div className="flex gap-3">
           <Button variant="outline" className="gap-2 bg-white shadow-sm border-gray-200 h-10">
@@ -240,7 +238,7 @@ const TaskEngine = () => {
           </Card>
         </TabsContent>
       </Tabs>
-    </AppLayout>
+    </>
   );
 };
 

@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,7 +10,7 @@ import {
 
 const Help = () => {
   return (
-    <AppLayout title="Help & Support">
+    <>
       <div className="mb-6">
         <div className="relative">
           <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
@@ -155,7 +153,7 @@ const Help = () => {
           </Card>
         </div>
       </div>
-    </AppLayout>
+    </>
   );
 };
 

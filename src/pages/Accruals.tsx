@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TableHeader, TableRow, TableHead, TableBody, TableCell, Table } from '@/components/ui/table';
@@ -65,7 +63,7 @@ const Accruals = () => {
   };
 
   return (
-    <AppLayout title="Accruals">
+    <>
       <div className="flex justify-between items-center mb-6">
         <div className="flex gap-4">
           <Button variant="outline" className="gap-2">
@@ -123,7 +121,7 @@ const Accruals = () => {
           </Table>
         </CardContent>
       </Card>
-    </AppLayout>
+    </>
   );
 };
 

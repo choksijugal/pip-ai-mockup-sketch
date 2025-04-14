@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -20,7 +18,7 @@ const AIAssistant = () => {
   };
 
   return (
-    <AppLayout title="AI Assistant">
+    <>
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
           <Card className="h-[calc(100vh-12rem)]">
@@ -158,7 +156,7 @@ const AIAssistant = () => {
           </Card>
         </div>
       </div>
-    </AppLayout>
+    </>
   );
 };
 

@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -8,7 +6,7 @@ import { BarChart3, PieChart, LineChart, Share2, Download, Calendar } from 'luci
 
 const Reports = () => {
   return (
-    <AppLayout title="Financial Reports">
+    <>
       <div className="flex justify-between items-center mb-6">
         <Button variant="outline" className="gap-2">
           <Calendar className="h-4 w-4" />
@@ -175,7 +173,7 @@ const Reports = () => {
           </Card>
         </TabsContent>
       </Tabs>
-    </AppLayout>
+    </>
   );
 };
 

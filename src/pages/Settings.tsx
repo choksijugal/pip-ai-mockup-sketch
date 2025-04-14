@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -15,7 +13,7 @@ import {
 
 const Settings = () => {
   return (
-    <AppLayout title="Settings">
+    <>
       <Tabs defaultValue="profile" className="w-full">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="md:w-64">
@@ -229,8 +227,6 @@ const Settings = () => {
               </Card>
             </TabsContent>
             
-            {/* For brevity, other tab contents are not shown but would follow the same pattern */}
-            
             <TabsContent value="billing" className="mt-0">
               <Card>
                 <CardHeader>
@@ -261,7 +257,7 @@ const Settings = () => {
           </div>
         </div>
       </Tabs>
-    </AppLayout>
+    </>
   );
 };
 

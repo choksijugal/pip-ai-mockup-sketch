@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -58,7 +56,7 @@ const Team = () => {
   ];
 
   return (
-    <AppLayout title="Team">
+    <>
       <div className="flex justify-between items-center mb-6">
         <div className="relative w-72">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -123,7 +121,7 @@ const Team = () => {
           </div>
         </CardContent>
       </Card>
-    </AppLayout>
+    </>
   );
 };
 
