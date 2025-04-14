@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TableHeader, TableRow, TableHead, TableBody, TableCell, Table } from '@/components/ui/table';
@@ -8,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowUpDown, CheckCircle2, Clock, AlertCircle, PlusCircle, Filter } from 'lucide-react';
 
 const Reconciliations = () => {
+  const navigate = useNavigate();
+
   const reconciliationItems = [
     {
       id: '1',
@@ -69,6 +72,11 @@ const Reconciliations = () => {
       default:
         return <Badge>{status}</Badge>;
     }
+  };
+
+  // Handle View button click for reconciliation detail
+  const handleViewReconciliation = (id: string) => {
+    navigate(`/reconciliations/${id}`);
   };
 
   return (
@@ -138,7 +146,14 @@ const Reconciliations = () => {
                   <TableCell>{getStatusBadge(item.status)}</TableCell>
                   <TableCell className="text-muted-foreground">{item.lastUpdated}</TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700 hover:bg-gray-100">View</Button>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                      onClick={() => handleViewReconciliation(item.id)}
+                    >
+                      View
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

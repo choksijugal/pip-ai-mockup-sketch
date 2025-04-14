@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TaskEngine from "./pages/TaskEngine";
 import Reconciliations from "./pages/Reconciliations";
+import ReconciliationDetail from "./pages/ReconciliationDetail";
 import AIAssistant from "./pages/AIAssistant";
 import Transactions from "./pages/Transactions";
 import Reports from "./pages/Reports";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/" element={<AppLayout title="Dashboard"><Index /></AppLayout>} />
           <Route path="/task-engine" element={<AppLayout title="Task Engine"><TaskEngine /></AppLayout>} />
           <Route path="/reconciliations" element={<AppLayout title="Reconciliations"><Reconciliations /></AppLayout>} />
+          <Route path="/reconciliations/:id" element={<AppLayout title="Reconciliation Detail"><ReconciliationDetail /></AppLayout>} />
           <Route path="/assistant" element={<AppLayout title="AI Assistant"><AIAssistant /></AppLayout>} />
           <Route path="/transactions" element={<AppLayout title="Transactions"><Transactions /></AppLayout>} />
           <Route path="/reports" element={<AppLayout title="Financial Reports"><Reports /></AppLayout>} />
