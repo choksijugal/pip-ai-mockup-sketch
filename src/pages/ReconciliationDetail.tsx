@@ -1,15 +1,19 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ReconciliationComparison } from '@/components/reconciliation/reconciliation-comparison';
 import { ReconciliationStatusDetail } from '@/components/reconciliation/reconciliation-status-detail';
+import { ResolveVariancesDialog } from '@/components/reconciliation/resolve-variances-dialog';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Download, CheckCircle, XCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useToast } from '@/hooks/use-toast';
 
 const ReconciliationDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [resolveDialogOpen, setResolveDialogOpen] = useState(false);
   
   // Mock reconciliation data - in a real app, this would be fetched from an API
   const reconciliationData = {
@@ -127,6 +131,19 @@ const ReconciliationDetail = () => {
     return <div>Loading...</div>;
   }
 
+  // Handle opening the resolve variances dialog
+  const handleResolveVariances = () => {
+    setResolveDialogOpen(true);
+  };
+
+  // Handle approving the reconciliation
+  const handleApproveReconciliation = () => {
+    toast({
+      title: "Reconciliation Approved",
+      description: "This reconciliation has been successfully approved.",
+    });
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
@@ -149,12 +166,18 @@ const ReconciliationDetail = () => {
               Approved
             </Button>
           ) : reconciliationData.variance !== 0 ? (
-            <Button className="gap-2 bg-red-600 shadow-sm hover:bg-red-700">
+            <Button 
+              className="gap-2 bg-red-600 shadow-sm hover:bg-red-700"
+              onClick={handleResolveVariances}
+            >
               <XCircle className="h-4 w-4" />
               Resolve Variances
             </Button>
           ) : (
-            <Button className="gap-2 bg-primary shadow-sm">
+            <Button 
+              className="gap-2 bg-primary shadow-sm"
+              onClick={handleApproveReconciliation}
+            >
               <CheckCircle className="h-4 w-4" />
               Approve Reconciliation
             </Button>
@@ -183,6 +206,13 @@ const ReconciliationDetail = () => {
       />
       
       <ReconciliationComparison 
+        entries={reconciliationData.entries}
+        accountName={reconciliationData.account}
+      />
+
+      <ResolveVariancesDialog
+        open={resolveDialogOpen}
+        onOpenChange={setResolveDialogOpen}
         entries={reconciliationData.entries}
         accountName={reconciliationData.account}
       />
